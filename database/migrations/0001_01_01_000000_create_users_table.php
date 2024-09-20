@@ -21,6 +21,10 @@ return new class extends Migration
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
+            $table->string('bio')->nullable();
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('avatar')->nullable(); // Path to the avatar image
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
@@ -36,12 +40,6 @@ return new class extends Migration
             $table->text('user_agent')->nullable();
             $table->longText('payload');
             $table->integer('last_activity')->index();
-        });
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('bio')->nullable();
-            $table->string('address')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('avatar')->nullable(); // Path to the avatar image
         });
     }
 
